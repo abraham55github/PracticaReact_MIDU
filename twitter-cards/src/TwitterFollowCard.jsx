@@ -2,14 +2,15 @@ import { useState } from 'react'
 import './App.css'
 
 
-function TwitterFollowCard({username, user, isFollowing}) {
+function TwitterFollowCard({ username, user }) {
 
-    const [follow, setFollow] = useState(isFollowing)
+    const [isFollowing, SetIsFollowing] = useState(false)
 
     const ImageSrc = `https://unavatar.io/x/${username}`
 
+    console.log(isFollowing)
     const HandleClickSeguir = () => {
-        setFollow(!follow)
+        SetIsFollowing(!isFollowing)
     }
 
     return (
@@ -25,10 +26,11 @@ function TwitterFollowCard({username, user, isFollowing}) {
 
                 <aside>
                     <button
-                        className='tw-followCard-button'
+                        className={`${isFollowing === true ? 'tw-followCard-button is-following' : 'tw-followCard-button'}`}
                         onClick={HandleClickSeguir}
                     >
-                        {follow ? 'Unfollow' : 'Follow'}
+                        {isFollowing ? 'Siguiendo' : 'Seguir'}
+                        <span className={`${isFollowing ? 'tw-followCard-stopFollow' : 'tw-followCard-text'}`}>{isFollowing ? 'Dejar de seguir' : ''}</span>
                     </button>
                 </aside>
             </article>

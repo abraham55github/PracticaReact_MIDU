@@ -4,7 +4,7 @@ function App() {
 
   return (
     <>
-      <TwitterFollowCard username={'midudev'} user={'Miguel Angel'} isFollowing={false} />
+      <TwitterFollowCard username={'midudev'} user={'Miguel Angel'} />
     </>
   )
 }

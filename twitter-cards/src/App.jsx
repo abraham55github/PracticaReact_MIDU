@@ -1,12 +1,10 @@
-
+import TwitterFollowCard from "./TwitterFollowCard"
 
 function App() {
 
   return (
     <>
-     <div>
-      
-     </div>
+      <TwitterFollowCard username={'midudev'} user={'Miguel Angel'} isFollowing={false} />
     </>
   )
 }

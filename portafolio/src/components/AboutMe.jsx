@@ -13,6 +13,7 @@ export default function Projects() {
         }
     )
 
+
     return (
         <>
             <Box>
@@ -24,28 +25,35 @@ export default function Projects() {
                     display="flex"
                     alignItems="center"
                     justifyContent="center"
+                    paddingBottom={3}
                 >
                     <PersonSearchOutlined fontSize="inherit" sx={{ fontSize: 'inherit', marginRight: 1 }} />
                     Sobre Mi
                 </Typography>
 
                 <Box>
-                    <Grid container spacing={2} justifyContent="center" mt={2}>
-                     
-                        <Grid display="flex" justifyContent="center" alignItems="center" size="grow">
-                            <Typography pl={5} variant="body1" >
+                    <Grid container spacing={2}>
+                        {/* Texto */}
+                        <Grid display="flex" justifyContent="center" alignItems="center" size={{
+                            sm: 12,
+                            md: 6
+                        }} 
+                        >
+                            <Typography pl={5} variant="body1">
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed provident numquam animi itaque est ipsam aperiam laborum alias odit mollitia ullam, perspiciatis rem cum optio voluptatibus vel asperiores blanditiis? Quisquam?
-                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam maxime tenetur exercitationem labore quaerat pariatur recusandae omnis corrupti? Cum repellat recusandae modi ut quisquam a fugiat ullam sed deserunt sapiente.
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores error eos numquam harum nam in! Quibusdam tempore vitae vel, ipsa corporis officiis mollitia, dignissimos ea a quo facilis repellendus labore? 
+
                             </Typography>
                         </Grid>
-                        <Grid display="flex" justifyContent="center" alignItems="center" size="grow">
-                            <Img
-                                src="https://via.placeholder.com/100x100"
-                                alt="imagen"
-                            />
-                        </Grid>
 
+                        {/* Imagen */}
+                        <Grid display="flex" justifyContent="center" alignItems="center" size={{
+                            sm: 12,
+                            md: 6
+
+                        }} 
+                        >
+                            <Img src="https://via.placeholder.com/100x100" alt="imagen" />
+                        </Grid>
                     </Grid>
 
                 </Box>

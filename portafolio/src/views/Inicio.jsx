@@ -18,10 +18,17 @@ export default function Inicio() {
                 </Container>
             </Box>
 
-            <Container maxWidth="md">
+            <Container maxWidth="md" >
                 <Projects />
-                <AboutMe />
             </Container>
+
+            <Box sx={{ background:'#f3f4f6', width: '100%' }}>
+                <Container maxWidth="md">
+                    <AboutMe />
+                </Container>
+            </Box>
+            
+
         </div>
     )
 }

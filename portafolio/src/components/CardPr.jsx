@@ -27,7 +27,7 @@ export default function CardPr() {
                     </Typography>
                 </CardContent>
                 <CardActions>
-                    <Grid container spacing={2} justifyContent="center" >
+                    <Grid container justifyContent="center" >
                         <IconButton color="secondary" aria-label="github" size="large">
                             <GitHub fontSize="inherit"/>
                         </IconButton>

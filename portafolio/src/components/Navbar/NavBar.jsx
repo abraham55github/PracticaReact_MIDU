@@ -13,7 +13,7 @@ export default function NavBar() {
 
     return (
         <Box display="flex" justifyContent="center" alignItems="center">
-            <BottomNavigation sx={{ width: 500, border: 1 }} value={value} onChange={handleChange}>
+            <BottomNavigation sx={{ width: 500 }} value={value} onChange={handleChange}>
                 <BottomNavigationAction
                     label="Experiencia"
                     value="recents"

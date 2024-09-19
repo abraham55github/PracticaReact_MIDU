@@ -1,10 +1,11 @@
 import { Code } from "@mui/icons-material"
 import { Box, Typography } from "@mui/material"
+import CardPr from "./CardPr"
 
 export default function Projects() {
     return (
         <>
-            <Box sx={{ border: 1 }} >
+            <Box >
                 <Typography
                     textAlign={'center'}
                     variant="h4"
@@ -17,7 +18,7 @@ export default function Projects() {
                     <Code fontSize="inherit" sx={{ fontSize: 'inherit', marginRight: 1 }} />
                     Proyectos
                 </Typography>
-
+                <CardPr/>
             </Box>
         </>
     )

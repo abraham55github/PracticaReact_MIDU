@@ -7,18 +7,18 @@ import AboutMe from "../components/AboutMe"
 export default function Inicio() {
     return (
         <div>
-            <Container maxWidth="lg">
+            <Container maxWidth="md">
                 <Content />
             </Container>
 
             {/* Box with full width and background */}
             <Box sx={{ background:'#f3f4f6', width: '100%' }}>
-                <Container maxWidth="lg">
+                <Container maxWidth="md">
                     <Experience />
                 </Container>
             </Box>
 
-            <Container maxWidth="lg">
+            <Container maxWidth="md">
                 <Projects />
                 <AboutMe />
             </Container>

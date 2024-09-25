@@ -29,7 +29,7 @@ function TwitterFollowCard({ username, user }) {
                         className={`${isFollowing === true ? 'tw-followCard-button is-following' : 'tw-followCard-button'}`}
                         onClick={HandleClickSeguir}
                     >
-                        {isFollowing ? 'Siguiendo' : 'Seguir'}
+                        <span className={`${isFollowing ? 'tw-followCard-text' : ' '}`}>{isFollowing ? 'Siguiendo' : 'Seguir'}</span>
                         <span className={`${isFollowing ? 'tw-followCard-stopFollow' : ' tw-followCard-text'}`}>{isFollowing ? 'Dejar de seguir' : ''}</span>
                     </button>
                 </aside>

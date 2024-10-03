@@ -16,7 +16,7 @@ export default function Projects() {
 
     return (
         <>
-            <Box>
+            <Box paddingBottom={10}>
                 <Typography
                     textAlign={'center'}
                     variant="h4"
@@ -35,7 +35,7 @@ export default function Projects() {
                     <Grid container spacing={2}>
                         {/* Texto */}
                         <Grid display="flex" justifyContent="center" alignItems="center" size={{
-                            sm: 12,
+                            xs: 12,
                             md: 6
                         }} 
                         >
@@ -47,7 +47,8 @@ export default function Projects() {
 
                         {/* Imagen */}
                         <Grid display="flex" justifyContent="center" alignItems="center" size={{
-                            sm: 12,
+                            
+                            xs: 12,
                             md: 6
 
                         }} 

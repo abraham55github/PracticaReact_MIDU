@@ -1,32 +1,101 @@
-import { GitHub, LinkedIn, Mail } from "@mui/icons-material"
-import { Box, Typography, Button } from "@mui/material"
+import { GitHub, LinkedIn, Mail } from "@mui/icons-material";
+import { Box, Typography, Button, Avatar } from "@mui/material";
 import Grid from '@mui/material/Grid2';
 
 export default function Content() {
     return (
         <>
-            <Box sx={{  paddingY: 8 }} >
-                <Typography textAlign={'center'} variant="h2" color="initial" pt={5} fontWeight="bold">
-                    Abraham Otero
-                </Typography>
-                <Box sx={{ paddingX: { sm: 5, xs: 2 , lg: 5 }, paddingY: 2 }}>
-                    <Typography textAlign={'center'} variant="body1" color="initial">
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit suscipit iusto labore, dolor et harum molestias eum quod aliquid dolorem recusandae, perferendis repellendus neque officia soluta nostrum officiis sapiente repudiandae.
-                    </Typography>
-                    <Grid container spacing={2} justifyContent="center" mt={2}>
-                        <Button color="secondary" variant="outlined" startIcon={<GitHub />}>
-                            GitHub
+            <Box sx={{ paddingTop: 8 }}>
+                <Box display="flex" alignItems="center" sx={{
+                    paddingLeft: { xs: 2, sm: 4, md: 6, lg: 10 },  // Cambia el padding según el tamaño de la pantalla     // En pantallas pequeñas, el layout será vertical
+                }}>
+                    <Avatar alt="Abraham Otero" src="../public/perfil1.jpg" sx={{ width: 64, height: 64 }} />
+                    <Box paddingLeft={2}>
+                        <Button
+                            variant="outlined"
+                            size="small"
+                            sx={{
+                                borderRadius: '30px',
+                                transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+                                '&:hover': {
+                                    transform: 'scale(1.04)',
+                                },
+                            }}
+                            component="a"
+                            href="https://www.linkedin.com/in/abraham-otero"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Disponible para trabajar
                         </Button>
-                        <Button color="secondary" variant="outlined" startIcon={<LinkedIn />}>
-                            Linkedin
-                        </Button>
-                        <Button color="secondary" variant="outlined" startIcon={<Mail />}>
-                            Mail
-                        </Button>
-                    </Grid>
+                    </Box>
                 </Box>
 
+                <Box sx={{ paddingX: { sm: 5, xs: 2, lg: 5 }, paddingY: 2, paddingTop: 5 }}>
+                    <Typography variant="h3" color="initial" fontWeight="bold" textAlign={'center'} sx={{ color: "secondary.main" }}>
+                        Abraham Otero
+                    </Typography>
+
+                    <Typography
+                        textAlign="center"
+                        variant="body1"
+                        color="initial"
+                        sx={{ fontSize: '1.1rem' }}
+                    >
+                        1 año de experiencia, {' '}
+                        <span style={{ color: '#69932e', fontWeight: 'bold' }}>
+                            Ingeniero en Sistemas y Desarrollador web React
+                        </span>{' '}
+                        para el frontend y{' '}
+                        <span style={{ color: '#0b3c49', fontWeight: 'bold' }}>
+                            Django
+                        </span>{' '}
+                        para el backend. Me apasiona crear aplicaciones web eficientes, escalables y
+                        orientadas al usuario, con especial interés en mejorar continuamente mis habilidades.
+                    </Typography>
+
+
+                    <Grid container spacing={2} justifyContent="center" mt={2}>
+                        <Grid >
+                            <Button
+                                color="secondary"
+                                variant="outlined"
+                                startIcon={<GitHub />}
+                                component="a"
+                                href="https://github.com/abraham55github"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                GitHub
+                            </Button>
+                        </Grid>
+                        <Grid >
+                            <Button
+                                color="secondary"
+                                variant="outlined"
+                                startIcon={<LinkedIn />}
+                                component="a"
+                                href="https://www.linkedin.com/in/abraham-otero"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                LinkedIn
+                            </Button>
+                        </Grid>
+                        <Grid >
+                            <Button
+                                color="secondary"
+                                variant="outlined"
+                                startIcon={<Mail />}
+                                component="a"
+                                href="mailto:abraham.otero555@gmail.com"
+                            >
+                                Mail
+                            </Button>
+                        </Grid>
+                    </Grid>
+                </Box>
             </Box>
         </>
-    )
+    );
 }

@@ -4,7 +4,7 @@ import Grid from '@mui/material/Grid2';
 
 export default function CardPr() {
     return (
-        <Box p={5}>
+        <Box paddingTop={5}>
             <Card
                 sx={{
                     maxWidth: 345,
@@ -21,18 +21,20 @@ export default function CardPr() {
                     alt="una descripcion"
                 />
                 <CardContent>
-                    <Typography variant="h5" >Title</Typography>
+                    <Typography variant="h5" >Inventario STF</Typography>
                     <Typography component="p" variant="body2">
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni tempore aspernatur aliquid saepe tenetur veniam eligendi recusandae nemo molestiae voluptatem. Provident repudiandae sed velit corporis voluptas commodi! Repellat, rerum sit!
+                        desarrollé una plataforma de inventario para cilindros, camiones de bulks y tanques estacionarios.
+                        Se encarga de registrar las cantidades de cilindros de 25, 60 y 100 lbs, registrar los niveles de gas propano o butano en %, litros y galones,
+                        asi como automatizar el calculo para gravedad especifica y temperatura.
                     </Typography>
                 </CardContent>
                 <CardActions>
                     <Grid container justifyContent="center" >
                         <IconButton color="secondary" aria-label="github" size="large">
-                            <GitHub fontSize="inherit"/>
+                            <GitHub fontSize="inherit" />
                         </IconButton>
                         <IconButton color="secondary" aria-label="github" size="large">
-                            <Link fontSize="inherit"/>
+                            <Link fontSize="inherit" />
                         </IconButton>
                     </Grid>
                 </CardActions>

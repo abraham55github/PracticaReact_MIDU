@@ -5,7 +5,7 @@ import CardExp from '../components/CardExp'
 export default function Experience() {
     return (
         <>
-            <Box sx={{ paddingBottom: 2, padding: 5}} >
+            <Box sx={{ paddingBottom: 10}} >
                 <Typography
                     textAlign={'center'}
                     variant="h4"

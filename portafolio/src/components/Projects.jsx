@@ -5,7 +5,7 @@ import CardPr from "./CardPr"
 export default function Projects() {
     return (
         <>
-            <Box >
+            <Box paddingBottom={10}>
                 <Typography
                     textAlign={'center'}
                     variant="h4"

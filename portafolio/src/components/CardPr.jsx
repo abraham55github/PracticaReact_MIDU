@@ -1,44 +1,84 @@
 import { GitHub, Link } from "@mui/icons-material";
-import { Box, Card, CardActions, CardContent, CardMedia, IconButton, Typography } from "@mui/material";
+import { Box, Card, CardActionArea, CardActions, CardContent, CardMedia, IconButton, Typography, Button } from "@mui/material";
 import Grid from '@mui/material/Grid2';
+import { useState } from "react";
 
-export default function CardPr() {
+export default function CardPr({ title, imageUrl, description, githubUrl = false, linkUrl = false }) {
+    // Estado para manejar el botón 'Ver más'
+    const [showMore, setShowMore] = useState(false);
+
+    // Limitar el número de caracteres visibles si no se ha expandido
+    const textToShow = showMore ? description : description.slice(0, 150) + (description.length > 150 ? '...' : '');
+
     return (
         <Box paddingTop={5}>
             <Card
                 sx={{
                     maxWidth: 345,
-                    transition: "0.25",
+                    height: '100%', // Se adapta al contenedor
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "space-between", // Para que el botón "Ver más" quede al final
+                    transition: "0.25s",
                     "&:hover": {
                         transform: "scale(1.05)",
                     },
                 }}
             >
-                <CardMedia
-                    component="img"
-                    image="https://via.placeholder.com/100x50"
-                    heigh="200"
-                    alt="una descripcion"
-                />
-                <CardContent>
-                    <Typography variant="h5" >Inventario STF</Typography>
-                    <Typography component="p" variant="body2">
-                        desarrollé una plataforma de inventario para cilindros, camiones de bulks y tanques estacionarios.
-                        Se encarga de registrar las cantidades de cilindros de 25, 60 y 100 lbs, registrar los niveles de gas propano o butano en %, litros y galones,
-                        asi como automatizar el calculo para gravedad especifica y temperatura.
-                    </Typography>
-                </CardContent>
+                <CardActionArea>
+                    <CardMedia
+                        component="img"
+                        image={imageUrl || "https://via.placeholder.com/345x200"} // Proporciona una imagen de fallback
+                        sx={{
+                            height: 200, // Controla la altura de la imagen
+                            objectFit: 'cover', // Asegura que la imagen se recorte correctamente sin distorsión
+                            width: '100%', // Asegura que la imagen ocupe todo el ancho del card
+                        }}
+                        alt="Descripción de la imagen"
+                    />
+                    <CardContent>
+                        <Typography variant="h5">{title}</Typography>
+                        <Typography component="p" variant="body2">
+                            {textToShow}
+                        </Typography>
+                    </CardContent>
+                </CardActionArea>
                 <CardActions>
-                    <Grid container justifyContent="center" >
-                        <IconButton color="secondary" aria-label="github" size="large">
-                            <GitHub fontSize="inherit" />
-                        </IconButton>
-                        <IconButton color="secondary" aria-label="github" size="large">
-                            <Link fontSize="inherit" />
-                        </IconButton>
+                    <Grid container justifyContent="center">
+                        {/* Mostrar botones de GitHub y Link si las URLs están presentes */}
+                        {githubUrl && (
+                            <IconButton
+                                color="secondary"
+                                aria-label="github"
+                                size="large"
+                                href={githubUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <GitHub fontSize="inherit" />
+                            </IconButton>
+                        )}
+                        {linkUrl && (
+                            <IconButton
+                                color="secondary"
+                                aria-label="link"
+                                size="large"
+                                href={linkUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <Link fontSize="inherit" />
+                            </IconButton>
+                        )}
                     </Grid>
+                    {/* Botón para mostrar más/menos */}
+                    {description.length > 150 && (
+                        <Button size="small" onClick={() => setShowMore(!showMore)}>
+                            {showMore ? "Ver menos" : "Ver más"}
+                        </Button>
+                    )}
                 </CardActions>
             </Card>
         </Box>
-    )
+    );
 }

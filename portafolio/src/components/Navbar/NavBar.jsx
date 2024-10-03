@@ -21,6 +21,34 @@ export default function NavBar() {
         };
     }, []);
 
+    // Configurar el IntersectionObserver
+    React.useEffect(() => {
+        const sections = document.querySelectorAll('section');
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        setValue(entry.target.id);
+                    }
+                });
+            },
+            {
+                root: null,  // La raíz es la ventana visible
+                threshold: 1, // Detecta cuando el 30% de la sección está visible
+            }
+        );
+
+        sections.forEach((section) => {
+            observer.observe(section);
+        });
+
+        return () => {
+            sections.forEach((section) => {
+                observer.unobserve(section);
+            });
+        };
+    }, []);
+
     return (
         <Box
             display="flex"
@@ -62,9 +90,9 @@ export default function NavBar() {
                     value="experience"
                     icon={<WorkHistory />}
                     component={Link}
-                    to="experience" // El ID de la sección
-                    smooth={true} // Habilitar desplazamiento suave
-                    duration={500} // Duración del scroll en milisegundos
+                    to="experience"
+                    smooth={true}
+                    duration={500}
                 />
                 <BottomNavigationAction
                     label="Proyectos"

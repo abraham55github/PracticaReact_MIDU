@@ -5,14 +5,16 @@ export default function CardExp() {
     <Paper
       sx={{
         display: "flex",
-        alignItems: "center",
+        flexDirection: { xs: "column", sm: "row" }, // En xs, se apilan en columna
+        alignItems: { xs: "flex-start", sm: "center" }, // Alineación para xs y sm+
         gap: 2,
         overflow: "hidden",
-        padding: 2,
+        padding: { xs: 2, sm: 3 },
       }}
     >
-      <Box sx={{ padding: { xs: 2, sm: 4 }, flexBasis: "30%" }}>
-        <Typography color="primary" variant="h5" display="flex">
+      {/* Sección de la izquierda */}
+      <Box sx={{ padding: { xs: 2, sm: 4 }, flexBasis: { xs: "100%", sm: "30%" } }}>
+        <Typography color="primary" variant="h6" display="flex"> {/* Cambiado a h6 en xs */}
           Innovación y Desarrollo TI
         </Typography>
         <Typography variant="body1">Panagas</Typography>
@@ -20,21 +22,23 @@ export default function CardExp() {
           Abril - Septiembre 2024
         </Typography>
       </Box>
+
+      {/* Sección de la derecha */}
       <Box
         sx={{
           paddingY: { xs: 2, sm: 4 },
-          paddingRight: { xs: 2, sm: 4 },
-          flexBasis: "70%",
+          paddingRight: { xs: 0, sm: 4 }, // Quitar padding-right en xs
+          flexBasis: { xs: "100%", sm: "70%" }, // Flexibilidad según el tamaño de pantalla
         }}
       >
-        <Typography pb={2}>
+        <Typography pb={2} variant="body2" sx={{ fontSize: { xs: '0.9rem', sm: '1rem' } }}>
           Durante 6 meses, desarrollé una plataforma de inventario para cilindros y tanques.
           También proporcioné soporte técnico al equipo informático, 
           desarrollé soluciones automatizadas con Power Automate y SharePoint, 
-          realice desplegué de aplicaciones en un servidor Linux con Apache2 
+          realicé despliegue de aplicaciones en un servidor Linux con Apache2 
           y participé en el desarrollo de una aplicación para consolidar datos.
         </Typography>
-        <Button variant="contained" color="primary">
+        <Button variant="contained" color="primary" size="small">
           Detalles
         </Button>
       </Box>

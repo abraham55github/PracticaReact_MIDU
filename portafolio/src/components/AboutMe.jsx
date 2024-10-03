@@ -9,7 +9,8 @@ export default function Projects() {
             width: 200,
             height: "100%",
             objectFit: "cover",
-            objectPosition: "center"
+            objectPosition: "center",
+
         }
     )
 
@@ -37,23 +38,33 @@ export default function Projects() {
                         <Grid display="flex" justifyContent="center" alignItems="center" size={{
                             xs: 12,
                             md: 6
-                        }} 
+                        }}
                         >
                             <Typography pl={5} variant="body1">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed provident numquam animi itaque est ipsam aperiam laborum alias odit mollitia ullam, perspiciatis rem cum optio voluptatibus vel asperiores blanditiis? Quisquam?
-
+                                ¡Hola! Soy Abraham Julio Otero González,{' '}
+                                <span style={{ color: '#69932e', fontWeight: 'bold' }}>
+                                    Ingeniero en Sistemas y Computación por la Universidad Tecnológica de Panamá.
+                                </span>{' '}
+                                Soy un apasionado de la tecnología y me encanta desarrollar software con el objetivo de encontrar soluciones a problemas
+                                cotidianos.
+                                Me enfoco en comprender y aprender los diferentes{' '}
+                                <span style={{ color: '#69932e', fontWeight: 'bold' }}>
+                                    patrones de diseño de software y arquitecturas,
+                                </span>{' '}
+                                buscando siempre la manera más eficiente de construir aplicaciones que cumplan con los objetivos planteados y
+                                ofrezcan un valor real.
                             </Typography>
                         </Grid>
 
                         {/* Imagen */}
                         <Grid display="flex" justifyContent="center" alignItems="center" size={{
-                            
+
                             xs: 12,
                             md: 6
 
-                        }} 
+                        }}
                         >
-                            <Img src="https://via.placeholder.com/100x100" alt="imagen" />
+                            <Img src="../public/img/perfil4.png" alt="imagen" />
                         </Grid>
                     </Grid>
 

@@ -8,10 +8,14 @@ import { Link } from 'react-scroll'; // Importar el Link de react-scroll
 export default function NavBar() {
     const [value, setValue] = React.useState('');
     const [opacity, setOpacity] = React.useState(1);
+    const [backgroundOpacity, setBackgroundOpacity] = React.useState(1);
+    const [observerThreshold, setObserverThreshold] = React.useState(1);
 
     const handleScroll = () => {
         const isAtBottom = window.innerHeight + window.scrollY >= document.body.offsetHeight;
         setOpacity(isAtBottom ? 0.1 : 1);
+        const isAtTop = window.scrollY === 0;
+        setBackgroundOpacity(isAtTop ? 0 : 1); //Si está en la parte superior, hacer el fondo invisible
     };
 
     React.useEffect(() => {
@@ -21,7 +25,26 @@ export default function NavBar() {
         };
     }, []);
 
-    // Configurar el IntersectionObserver
+    // Ajustar el umbral (threshold) según el tamaño de la pantalla
+    React.useEffect(() => {
+        const updateThreshold = () => {
+            if (window.innerWidth <= 600) {
+                setObserverThreshold(0.1); // Umbral para pantallas pequeñas
+            } else {
+                setObserverThreshold(1); // Umbral para pantallas grandes
+            }
+        };
+
+        // Actualizar el umbral al cargar la página y al cambiar el tamaño de la ventana
+        updateThreshold();
+        window.addEventListener('resize', updateThreshold);
+
+        return () => {
+            window.removeEventListener('resize', updateThreshold);
+        };
+    }, []);
+
+    // Configurar el IntersectionObserver con el umbral dinámico
     React.useEffect(() => {
         const sections = document.querySelectorAll('section');
         const observer = new IntersectionObserver(
@@ -33,8 +56,8 @@ export default function NavBar() {
                 });
             },
             {
-                root: null,  // La raíz es la ventana visible
-                threshold: 1, // Detecta cuando el 30% de la sección está visible
+                root: null, // La raíz es la ventana visible
+                threshold: observerThreshold, // Usar el umbral dinámico
             }
         );
 
@@ -47,7 +70,7 @@ export default function NavBar() {
                 observer.unobserve(section);
             });
         };
-    }, []);
+    }, [observerThreshold]); // Volver a ejecutar si el umbral cambia
 
     return (
         <Box
@@ -64,13 +87,20 @@ export default function NavBar() {
                         md: 500,
                     },
                     backgroundColor: 'rgba(255, 255, 255, 0.1)',
-                    boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.1)',
-                    border: '1px solid rgba(255, 255, 255, 0.3)',
+                    boxShadow: backgroundOpacity ? '0px 4px 12px rgba(0, 0, 0, 0.1)' : 'none',
+                    border: backgroundOpacity ? '1px solid rgba(255, 255, 255, 0.3)' : 'none',
                     borderRadius: '10px',
-                    backdropFilter: 'blur(10px)',
-                    WebkitBackdropFilter: 'blur(10px)',
+                    backdropFilter: backgroundOpacity ? 'blur(10px)' : 'none',
+                    WebkitBackdropFilter: backgroundOpacity ? 'blur(10px)' : 'none',
                     position: 'fixed',
-                    bottom: 20,
+                    bottom: {
+                        xs: 20, // Estará en la parte inferior para pantallas pequeñas
+                        md: 'unset', // No aplica `bottom` en pantallas medianas y grandes
+                    },
+                    top: {
+                        xs: 'unset', // No aplica `top` en pantallas pequeñas
+                        md: 10, // Estará en la parte superior para pantallas medianas y grandes
+                    },
                     left: '50%',
                     transform: 'translateX(-50%)',
                     zIndex: 1000,
@@ -80,6 +110,7 @@ export default function NavBar() {
                         md: '16px 24px',
                     },
                     opacity: opacity,
+                    
                     transition: 'opacity 0.3s ease-in-out',
                 }}
                 value={value}

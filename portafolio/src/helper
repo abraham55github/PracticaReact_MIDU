@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Paper, Box, Typography, Button } from "@mui/material";
 import ModalExp from './modal/ModalExp'; // Asegúrate de ajustar la ruta según tu estructura de carpetas
 
+
 export default function CardExp() {
   const [openModal, setOpenModal] = useState(false); // Estado para manejar el modal
 
@@ -9,26 +10,20 @@ export default function CardExp() {
   const handleOpenModal = () => setOpenModal(true);
   const handleCloseModal = () => setOpenModal(false);
 
+
   return (
+
     <>
       <Paper
         sx={{
           display: "flex",
-          flexDirection: { xs: "column", sm: "row" }, // Cambiar a columna en pantallas pequeñas
-          alignItems: "flex-start",
+          alignItems: "center",
           gap: 2,
           overflow: "hidden",
           padding: 2,
-          margin: 2, // Añadir margen para separar las tarjetas
-          borderRadius: 2, // Esquinas redondeadas
         }}
       >
-        <Box
-          sx={{
-            padding: 2,
-            flexBasis: { xs: "100%", sm: "30%" }, // Ocupa todo el ancho en móviles
-          }}
-        >
+        <Box sx={{ padding: { xs: 2, sm: 4 }, flexBasis: "30%" }}>
           <Typography color="primary" variant="h5" display="flex">
             Innovación y Desarrollo TI
           </Typography>
@@ -39,15 +34,16 @@ export default function CardExp() {
         </Box>
         <Box
           sx={{
-            padding: 2,
-            flexBasis: { xs: "100%", sm: "70%" }, // Ocupa todo el ancho en móviles
+            paddingY: { xs: 2, sm: 4 },
+            paddingRight: { xs: 2, sm: 4 },
+            flexBasis: "70%",
           }}
         >
           <Typography pb={2}>
             Durante 6 meses, desarrollé una plataforma de inventario para cilindros y tanques.
             También proporcioné soporte técnico al equipo informático,
             desarrollé soluciones automatizadas con Power Automate y SharePoint,
-            realicé el despliegue de aplicaciones en un servidor Linux con Apache2
+            realice desplegué de aplicaciones en un servidor Linux con Apache2
             y participé en el desarrollo de una aplicación para consolidar datos.
           </Typography>
           <Button variant="contained" color="primary" onClick={handleOpenModal}>
@@ -60,6 +56,9 @@ export default function CardExp() {
         open={openModal}
         onClose={handleCloseModal}
       />
+
     </>
+
+
   );
 }

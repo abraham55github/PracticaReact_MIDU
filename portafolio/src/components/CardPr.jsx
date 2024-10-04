@@ -2,13 +2,21 @@ import { GitHub, Link } from "@mui/icons-material";
 import { Box, Card, CardActionArea, CardActions, CardContent, CardMedia, IconButton, Typography, Button } from "@mui/material";
 import Grid from '@mui/material/Grid2';
 import { useState } from "react";
+import CustomModal from './modal/CustomModal'; // Asegúrate de ajustar la ruta según tu estructura de carpetas
 
-export default function CardPr({ title, imageUrl, description, githubUrl = false, linkUrl = false }) {
+export default function CardPr({ title, imageUrl, sliders,  description, githubUrl = false, linkUrl = false }) {
     // Estado para manejar el botón 'Ver más'
     const [showMore, setShowMore] = useState(false);
+    const [openModal, setOpenModal] = useState(false); // Estado para manejar el modal
 
     // Limitar el número de caracteres visibles si no se ha expandido
     const textToShow = showMore ? description : description.slice(0, 150) + (description.length > 150 ? '...' : '');
+
+    // Funciones para abrir y cerrar el modal
+    const handleOpenModal = () => setOpenModal(true);
+    const handleCloseModal = () => setOpenModal(false);
+
+
 
     return (
         <Box paddingTop={5}>
@@ -25,7 +33,7 @@ export default function CardPr({ title, imageUrl, description, githubUrl = false
                     },
                 }}
             >
-                <CardActionArea>
+                <CardActionArea onClick={handleOpenModal}>
                     <CardMedia
                         component="img"
                         image={imageUrl || "https://via.placeholder.com/345x200"} // Proporciona una imagen de fallback
@@ -79,6 +87,13 @@ export default function CardPr({ title, imageUrl, description, githubUrl = false
                     )}
                 </CardActions>
             </Card>
+
+            {/* Usar el componente CustomModal */}
+            <CustomModal
+                open={openModal}
+                onClose={handleCloseModal}
+                sliders={sliders}
+            />
         </Box>
     );
 }

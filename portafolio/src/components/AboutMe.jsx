@@ -45,8 +45,7 @@ export default function Projects() {
                                 <span style={{ color: '#69932e', fontWeight: 'bold' }}>
                                     Ingeniero en Sistemas y Computación por la Universidad Tecnológica de Panamá.
                                 </span>{' '}
-                                Soy un apasionado de la tecnología y me encanta desarrollar software con el objetivo de encontrar soluciones a problemas
-                                cotidianos.
+                                Soy un apasionado de la tecnología y me encanta desarrollar software con el objetivo de encontrar soluciones óptimas.
                                 Me enfoco en comprender y aprender los diferentes{' '}
                                 <span style={{ color: '#69932e', fontWeight: 'bold' }}>
                                     patrones de diseño de software y arquitecturas,

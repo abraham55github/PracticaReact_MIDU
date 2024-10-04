@@ -5,11 +5,11 @@ import Grid from '@mui/material/Grid2';
 export default function Content() {
     return (
         <>
-            <Box sx={{ paddingTop: 8 }}>
+            <Box sx={{ paddingTop:{ xs: 5, md:12} , paddingBottom: 10 }}>
                 <Box display="flex" alignItems="center" sx={{
                     paddingLeft: { xs: 2, sm: 4, md: 6, lg: 10 },  // Cambia el padding según el tamaño de la pantalla     // En pantallas pequeñas, el layout será vertical
                 }}>
-                    <Avatar alt="Abraham Otero" src="../public/img/perfil1.jpg" sx={{ width: 64, height: 64 }} />
+                    <Avatar alt="Abraham Otero" src="../public/img/perfil1.png" sx={{ width: 64, height: 64 }} />
                     <Box paddingLeft={2}>
                         <Button
                             variant="outlined"

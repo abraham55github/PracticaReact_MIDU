@@ -15,7 +15,7 @@ export default function NavBar() {
         const isAtBottom = window.innerHeight + window.scrollY >= document.body.offsetHeight;
         setOpacity(isAtBottom ? 0.1 : 1);
         const isAtTop = window.scrollY === 0;
-        setBackgroundOpacity(isAtTop ? 0 : 1); //Si está en la parte superior, hacer el fondo invisible
+        setBackgroundOpacity(isAtTop ? 0 : 1); // Si está en la parte superior, hacer el fondo invisible
     };
 
     React.useEffect(() => {
@@ -72,6 +72,11 @@ export default function NavBar() {
         };
     }, [observerThreshold]); // Volver a ejecutar si el umbral cambia
 
+    // Definir el offset de desplazamiento según el tamaño de la pantalla
+    const calculateOffset = () => {
+        return window.innerWidth <= 600 ? -50 : -100; // Ajustar según sea necesario
+    };
+
     return (
         <Box
             display="flex"
@@ -110,7 +115,6 @@ export default function NavBar() {
                         md: '16px 24px',
                     },
                     opacity: opacity,
-                    
                     transition: 'opacity 0.3s ease-in-out',
                 }}
                 value={value}
@@ -124,6 +128,7 @@ export default function NavBar() {
                     to="experience"
                     smooth={true}
                     duration={500}
+                    offset={calculateOffset()} // Ajuste de desplazamiento
                 />
                 <BottomNavigationAction
                     label="Proyectos"
@@ -133,6 +138,7 @@ export default function NavBar() {
                     to="projects"
                     smooth={true}
                     duration={500}
+                    offset={calculateOffset()} // Ajuste de desplazamiento
                 />
                 <BottomNavigationAction
                     label="Sobre mí"
@@ -142,6 +148,7 @@ export default function NavBar() {
                     to="aboutMe"
                     smooth={true}
                     duration={500}
+                    offset={calculateOffset()} // Ajuste de desplazamiento
                 />
                 <BottomNavigationAction
                     label="Contacto"
@@ -151,6 +158,7 @@ export default function NavBar() {
                     to="contact"
                     smooth={true}
                     duration={500}
+                    offset={calculateOffset()} // Ajuste de desplazamiento
                 />
             </BottomNavigation>
         </Box>

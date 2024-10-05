@@ -52,8 +52,7 @@ const ModalExp = ({ open, onClose }) => {
                     boxShadow: 24,
                     p: 4,
                     textAlign: 'center',
-                    overflowY: 'auto', // Habilitar scroll para contenido largo
-                    maxHeight: '90vh', // Limitar altura
+
                 }}
             >
                 <Typography id="modal-title" variant="h5" component="h2" sx={{ mb: 2 }}>
@@ -62,17 +61,22 @@ const ModalExp = ({ open, onClose }) => {
 
                 {slides[currentSlide].imageUrl && (
                     <Box sx={{ mb: 2, display: 'flex', justifyContent: 'center' }}>
-                        <img 
-                            src={slides[currentSlide].imageUrl} 
-                            alt={slides[currentSlide].title} 
+                        <img
+                            src={slides[currentSlide].imageUrl}
+                            alt={slides[currentSlide].title}
                             style={{ maxWidth: '100%', height: 'auto', borderRadius: '8px' }}
                         />
                     </Box>
                 )}
+                <Box sx={{
+                    maxHeight: '25vh', // Limita la altura máxima del contenedor
+                    overflowY: 'auto', // Habilita el scroll si es necesario
+                }}>
 
-                <Typography id="modal-description" sx={{ mb: 2, textAlign: 'justify' }}>
-                    {slides[currentSlide].content}
-                </Typography>
+                    <Typography id="modal-description" sx={{ mb: 2, textAlign: 'justify' }}>
+                        {slides[currentSlide].content}
+                    </Typography>
+                </Box>
 
                 <Box
                     sx={{

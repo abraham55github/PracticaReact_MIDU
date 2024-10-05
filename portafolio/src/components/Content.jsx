@@ -5,7 +5,7 @@ import Grid from '@mui/material/Grid2';
 export default function Content() {
     return (
         <>
-            <Box sx={{ paddingTop:{ xs: 5, md:12} , paddingBottom: 10 }}>
+            <Box sx={{ paddingTop: { xs: 5, md: 12 }, paddingBottom: 10 }}>
                 <Box display="flex" alignItems="center" sx={{
                     paddingLeft: { xs: 2, sm: 4, md: 6, lg: 10 },  // Cambia el padding según el tamaño de la pantalla     // En pantallas pequeñas, el layout será vertical
                 }}>
@@ -44,13 +44,13 @@ export default function Content() {
                     >
                         1 año de experiencia, {' '}
                         <span style={{ color: '#69932e', fontWeight: 'bold' }}>
-                            Ingeniero en Sistemas y Desarrollador web React
+                            Ingeniero en Sistemas y Desarrollador web, 
                         </span>{' '}
-                        para el frontend y{' '}
-                        <span style={{ color: '#0b3c49', fontWeight: 'bold' }}>
-                            Django
+                        de Panamá{' '}
+                        <span style={{ color: '#69932e', fontWeight: 'semibold', fontSize: 15}}>
+                            PA 
                         </span>{' '}
-                        para el backend. Me apasiona crear aplicaciones web eficientes, escalables y
+                        Me apasiona crear aplicaciones web eficientes, escalables y
                         orientadas al usuario, con especial interés en mejorar continuamente mis habilidades.
                     </Typography>
 

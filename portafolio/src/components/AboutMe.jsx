@@ -37,7 +37,7 @@ export default function Projects() {
                         {/* Texto */}
                         <Grid display="flex" justifyContent="center" alignItems="center" size={{
                             xs: 12,
-                            md: 6
+                            md: 6.5
                         }}
                         >
                             <Typography pl={5} variant="body1">
@@ -45,21 +45,26 @@ export default function Projects() {
                                 <span style={{ color: '#69932e', fontWeight: 'bold' }}>
                                     Ingeniero en Sistemas y Computación por la Universidad Tecnológica de Panamá.
                                 </span>{' '}
-                                Soy un apasionado de la tecnología y me encanta desarrollar software con el objetivo de encontrar soluciones óptimas.
-                                Me enfoco en comprender y aprender los diferentes{' '}
+                                Apasionado por la tecnología, me enfoco en desarrollar software eficiente aplicando{' '}
                                 <span style={{ color: '#69932e', fontWeight: 'bold' }}>
-                                    patrones de diseño de software y arquitecturas,
+                                    patrones de diseño y arquitecturas
                                 </span>{' '}
-                                buscando siempre la manera más eficiente de construir aplicaciones que cumplan con los objetivos planteados y
-                                ofrezcan un valor real.
+                                que ofrezcan soluciones óptimas.{' '}
+                                Actualmente trabajo principalmente con{' '}
+                                <span style={{ color: '#0b3c49', fontWeight: 'bold' }}>
+                                    React en JavaScript y Django en Python,
+                                </span>{' '}
+                                creando aplicaciones web completas y escalables, optimizando el rendimiento y la experiencia del usuario.
                             </Typography>
+
+
                         </Grid>
 
                         {/* Imagen */}
                         <Grid display="flex" justifyContent="center" alignItems="center" size={{
 
                             xs: 12,
-                            md: 6
+                            md: 5.5
 
                         }}
                         >

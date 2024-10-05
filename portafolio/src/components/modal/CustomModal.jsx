@@ -4,10 +4,7 @@ import { Box, Modal, Typography, Button, IconButton } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 import { ArrowBackIos, ArrowForwardIos } from "@mui/icons-material";
 
-
-
 const CustomModal = ({ sliders, onClose, open }) => {
-
     const [currentSlide, setCurrentSlide] = useState(0);
 
     const handleNextSlide = () => {
@@ -17,7 +14,6 @@ const CustomModal = ({ sliders, onClose, open }) => {
     const handlePrevSlide = () => {
         setCurrentSlide((prevSlide) => (prevSlide - 1 + sliders.length) % sliders.length);
     };
-
 
     return (
         <Modal
@@ -34,17 +30,14 @@ const CustomModal = ({ sliders, onClose, open }) => {
                     transform: 'translate(-50%, -50%)',
                     width: { xs: '90%', sm: '600px' }, // Hacemos el modal responsivo
                     bgcolor: 'background.paper',
-                    maxWidth: '90vw',
                     boxShadow: 24,
                     p: 4,
                 }}
             >
+                <Box
 
-                <Box>
-
-
+                >
                     <Grid container spacing={1}>
-
                         <Grid size={1} display={'flex'} justifyContent={'end'} alignItems={'center'}>
                             <IconButton onClick={handlePrevSlide} disabled={currentSlide === 0}>
                                 <ArrowBackIos />
@@ -63,9 +56,17 @@ const CustomModal = ({ sliders, onClose, open }) => {
                                 alt={sliders[currentSlide].title}
                                 style={{ maxWidth: '100%', height: 'auto', borderRadius: '8px' }}
                             />
-                            <Typography id="modal-description" sx={{ mt: 2 }}>
-                                {sliders[currentSlide].content}
-                            </Typography>
+                            <Box
+                                sx={{
+                                    maxHeight: '40vh', // Limita la altura máxima del contenedor
+                                    overflowY: 'auto', // Habilita el scroll si es necesario
+                                }}
+                            >
+
+                                <Typography id="modal-description" sx={{ mt: 2, textAlign: 'justify' }}>
+                                    {sliders[currentSlide].content}
+                                </Typography>
+                            </Box>
                         </Grid>
 
                         <Grid size={1} display={'flex'} justifyContent={'initial'} alignItems={'center'}>

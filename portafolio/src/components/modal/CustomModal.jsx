@@ -19,7 +19,6 @@ const CustomModal = ({ sliders, onClose, open }) => {
     };
 
 
-    console.log(sliders)
     return (
         <Modal
             open={open}
@@ -40,15 +39,9 @@ const CustomModal = ({ sliders, onClose, open }) => {
                     p: 4,
                 }}
             >
-                <Typography id="modal-title" variant="h6" component="h2">
-                    {sliders[currentSlide].title}
-                </Typography>
+
                 <Box>
-                    <img
-                        src={sliders[currentSlide].image}
-                        alt={sliders[currentSlide].title}
-                        style={{ maxWidth: '100%', height: 'auto', borderRadius: '8px' }}
-                    />
+
 
                     <Grid container spacing={1}>
 
@@ -57,11 +50,24 @@ const CustomModal = ({ sliders, onClose, open }) => {
                                 <ArrowBackIos />
                             </IconButton>
                         </Grid>
-                        <Grid size={ 10}>
+                        <Grid
+                            container
+                            size={10}
+                            style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}
+                        >
+                            <Typography id="modal-title" variant="h6" component="h2" style={{ textAlign: 'center', marginBottom: '16px' }}>
+                                {sliders[currentSlide].title}
+                            </Typography>
+                            <img
+                                src={sliders[currentSlide].imageUrl}
+                                alt={sliders[currentSlide].title}
+                                style={{ maxWidth: '100%', height: 'auto', borderRadius: '8px' }}
+                            />
                             <Typography id="modal-description" sx={{ mt: 2 }}>
                                 {sliders[currentSlide].content}
                             </Typography>
                         </Grid>
+
                         <Grid size={1} display={'flex'} justifyContent={'initial'} alignItems={'center'}>
                             <IconButton onClick={handleNextSlide} disabled={currentSlide === sliders.length - 1}>
                                 <ArrowForwardIos />

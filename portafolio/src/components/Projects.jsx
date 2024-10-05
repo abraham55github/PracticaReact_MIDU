@@ -12,7 +12,7 @@ const dataPr = [
         sliders: [
             {
                 title: "Desarrollo del Sistema de Inventario",
-                content: "Durante mi experiencia laboral, diseñé e implementé una plataforma integral para el registro del inventario físico de cilindros, camiones bulks y tanques estacionarios. El objetivo del proyecto fue crear un sistema eficiente y escalable que facilitara el monitoreo diario del inventario en múltiples plantas. La plataforma ha tenido un gran impacto, ya que facilita la recopilación de datos en tiempo real, mejorando la eficiencia operativa y reduciendo los errores manuales. Además, la aplicación realiza cálculos precisos para convertir volúmenes en galones y litros, teniendo en cuenta factores como la temperatura y la gravedad específica de los líquidos, lo que garantiza mediciones exactas y confiables.",
+                content: "",
                 imageUrl: "https://via.placeholder.com/300x200",
             },
             {
@@ -34,7 +34,7 @@ const dataPr = [
         description: "Desarrollé una plataforma de inventario para cilindros, camiones de bulks y tanques estacionarios. Se encarga de registrar las cantidades de cilindros de 25, 60 y 100 lbs, registrar los niveles de gas propano o butano en %, litros y galones, así como automatizar el cálculo para gravedad específica y temperatura.",
         sliders: [
             {
-                title: "Slider 1 datacenter",
+                title: "Slider",
                 content: "Contenido 1 de datacenter slider 1",
                 imageUrl: "https://via.placeholder.com/300x200",
             },

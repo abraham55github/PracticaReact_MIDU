@@ -15,6 +15,7 @@ const CustomModal = ({ sliders, onClose, open }) => {
         setCurrentSlide((prevSlide) => (prevSlide - 1 + sliders.length) % sliders.length);
     };
 
+    
     return (
         <Modal
             open={open}

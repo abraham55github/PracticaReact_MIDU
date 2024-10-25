@@ -58,6 +58,10 @@ export default function App() {
     setWinner(null)
   }
 
+  const checkEndGame = (newBoard) => {
+    return newBoard.every((Square) => Square !== null)
+  }
+
   const updateBoard = (index) => {
     // no actualizamos esta posicion
     // si ya tiene algo
@@ -73,7 +77,7 @@ export default function App() {
     const newWinner = checkWinner(newBoard);
     if (newWinner) {
       setWinner(newWinner)
-    }else if (setBoard(newBoard)) {
+    } else if (checkEndGame(newBoard)) {
       setWinner(false)
     }
   }
@@ -97,9 +101,9 @@ export default function App() {
           })
         }
       </section>
-      <footer>
-        <button onClick={resetGames}>Reiniciar juego</button>
-      </footer>
+
+      <button onClick={resetGames}>Reiniciar juego</button>
+
 
       <section className="turn">
         <Square isSelected={turno === Turnos.X}>{Turnos.X}</Square>

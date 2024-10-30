@@ -1,25 +1,21 @@
 import { useState } from "react";
 import { Square } from "./components/Square";
-import { WINER_COMBOS, Turnos } from "./constants";
-
+import { Turnos } from "./constants";
+import { checkWinner, checkEndGame } from "./logic/board";
+import { WinnerModal } from "./components/WinnerModal";
 
 export default function App() {
 
-  const [board, setBoard] = useState(Array(9).fill(null))
+  const [board, setBoard] = useState(
+    () => {
+    const boardFromStorage = window.localStorage.getItem('board')
+    return boardFromStorage ? JSON.parse(boardFromStorage) : Array(9).fill(null) 
+  })
+
+
   const [turno, setTurno] = useState(Turnos.X)
   const [winner, setWinner] = useState(null)
 
-  const checkWinner = (boardToCheck) => {
-    for (const combo of WINER_COMBOS) {
-      const [a, b, c] = combo;
-      if (
-        boardToCheck[a] &&
-        boardToCheck[a] === boardToCheck[b] &&
-        boardToCheck[b] === boardToCheck[c]) {
-        return boardToCheck[a];
-      }
-    }
-  }
 
   const resetGames = () => {
     setBoard(Array(9).fill(null))
@@ -27,9 +23,6 @@ export default function App() {
     setWinner(null)
   }
 
-  const checkEndGame = (newBoard) => {
-    return newBoard.every((Square) => Square !== null)
-  }
 
   const updateBoard = (index) => {
     // no actualizamos esta posicion
@@ -42,6 +35,13 @@ export default function App() {
     //cambiar el turno
     const nuevoTurno = turno === Turnos.X ? Turnos.O : Turnos.X;
     setTurno(nuevoTurno)
+
+    // guardando los cambios en localStorage
+    window.localStorage.SetItem(
+      'board', JSON.stringify(newBoard))
+    window.localStorage.SetItem(
+      'turno', turno)
+
     //revisar si hay ganador
     const newWinner = checkWinner(newBoard);
     if (newWinner) {
@@ -79,29 +79,8 @@ export default function App() {
         <Square isSelected={turno === Turnos.O}>{Turnos.O}</Square>
       </section>
 
+      <WinnerModal winner={winner} resetGames={resetGames}/>
 
-      {
-        winner !== null && (
-          <section className="winner">
-            <div className="text">
-              <h2>
-                {
-                  winner === false ? 'Empate' : 'Gano: '
-                }
-              </h2>
-              <header className="win">
-                {winner && <Square>{winner}</Square>}
-
-              </header>
-
-
-              <footer>
-                <button onClick={resetGames}>Empezar de nuevo</button>
-              </footer>
-            </div>
-          </section>
-        )
-      }
     </main>
   )
 }

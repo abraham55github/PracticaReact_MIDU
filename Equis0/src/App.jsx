@@ -6,14 +6,15 @@ import { WinnerModal } from "./components/WinnerModal";
 
 export default function App() {
 
-  const [board, setBoard] = useState(
-    () => {
-    const boardFromStorage = window.localStorage.getItem('board')
+  const [board, setBoard] = useState(() => {
+    const boardFromStorage = window.localStorage.getItem('board');
     return boardFromStorage ? JSON.parse(boardFromStorage) : Array(9).fill(null) 
   })
 
 
-  const [turno, setTurno] = useState(Turnos.X)
+  const [turno, setTurno] = useState(() => {
+    const turnFromStorage = window.localStorage.getItem('turno')
+    return turnFromStorage? turnFromStorage : Turnos.X})
   const [winner, setWinner] = useState(null)
 
 
@@ -21,6 +22,10 @@ export default function App() {
     setBoard(Array(9).fill(null))
     setTurno(Turnos.X)
     setWinner(null)
+    
+    // eliminando los datos en localStorage
+    window.localStorage.removeItem('board')
+    window.localStorage.removeItem('turno')
   }
 
 
@@ -37,10 +42,8 @@ export default function App() {
     setTurno(nuevoTurno)
 
     // guardando los cambios en localStorage
-    window.localStorage.SetItem(
-      'board', JSON.stringify(newBoard))
-    window.localStorage.SetItem(
-      'turno', turno)
+    window.localStorage.setItem('board', JSON.stringify(newBoard))
+    window.localStorage.setItem('turno', nuevoTurno)
 
     //revisar si hay ganador
     const newWinner = checkWinner(newBoard);

@@ -1,6 +1,6 @@
 export const Turnos = {
-    X: '❌',
-    O: '⚪'
+    X: '❌',           //❌
+    O: '⚪'                // ⚪
   }
   
   

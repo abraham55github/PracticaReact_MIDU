@@ -3,12 +3,19 @@ import { useEffect, useState } from "react"
 function App() {
 
   const [enable, setEnable] = useState(false);
+  const [position, setPosition] = useState({x: 0, y: 0});
 
   useEffect(() => {
-    const handlemoved = (e) -> {
+    const handlemoved = (e) => {
       const {clientX, clientY} = e
+      console.log({clientX, clientY})
+      setPosition({x: clientX, y: clientY})
     }
-  }, [])
+
+    if (enable) {
+      window.addEventListener('mousemove', handlemoved)
+    }
+  }, [enable])
 
   const handleClick = () => {
     setEnable(!enable)

@@ -15,6 +15,11 @@ function App() {
     if (enable) {
       window.addEventListener('mousemove', handlemoved)
     }
+
+    return () => {
+      window.removeEventListener('mousemove', handlemoved)
+    }
+    
   }, [enable])
 
   const handleClick = () => {

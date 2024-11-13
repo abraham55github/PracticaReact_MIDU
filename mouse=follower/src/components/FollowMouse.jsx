@@ -22,6 +22,15 @@ export const FollowMouse = () => {
 
   }, [enable])
 
+  useEffect(() => {
+    document.body.classList.toggle('no-cursor', enable)
+
+    return () => {
+        document.body.classList.remove('no-cursor')
+    }
+    
+  }, [enable])
+
   const handleClick = () => {
     setEnable(!enable)
   }

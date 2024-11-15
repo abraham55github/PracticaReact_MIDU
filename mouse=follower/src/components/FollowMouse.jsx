@@ -28,7 +28,6 @@ export const FollowMouse = () => {
     return () => {
         document.body.classList.remove('no-cursor')
     }
-    
   }, [enable])
 
   const handleClick = () => {

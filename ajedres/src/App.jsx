@@ -18,7 +18,6 @@ export default function App() {
     return turnFromStorage? turnFromStorage : Turnos.X})
   const [winner, setWinner] = useState(null)
 
-
   const resetGames = () => {
     setBoard(Array(9).fill(null))
     setTurno(Turnos.X)

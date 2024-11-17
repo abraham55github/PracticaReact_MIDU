@@ -9,7 +9,7 @@ export default function App() {
 
   const [board, setBoard] = useState(() => {
     const boardFromStorage = window.localStorage.getItem('board');
-    return boardFromStorage ? JSON.parse(boardFromStorage) : Array(9).fill(null) 
+    return boardFromStorage ? JSON.parse(boardFromStorage) : Array(64).fill(null) 
   })
 
 
@@ -20,7 +20,7 @@ export default function App() {
 
 
   const resetGames = () => {
-    setBoard(Array(9).fill(null))
+    setBoard(Array(64).fill(null))
     setTurno(Turnos.X)
     setWinner(null)
 

@@ -1,6 +1,6 @@
 import { Square } from "./Square";
 
-export const WinnerModal ({winner, resetGames}) {
+export const WinnerModal = ({winner, resetGames}) => {
     if (winner === null) return null;
 
     const winnerText = winner === false ? 'Empate' : 'Gano: '

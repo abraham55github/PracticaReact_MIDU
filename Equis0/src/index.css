@@ -35,6 +35,15 @@ body {
   text-align: center;
 }
 
+.white {
+  background-color: white;
+}
+
+.black {
+  background-color: black;
+}
+
+
 .board h1 {
   color: #eee;
   margin-bottom: 16px;

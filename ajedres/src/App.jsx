@@ -9,17 +9,17 @@ export default function App() {
 
   const [board, setBoard] = useState(() => {
     const boardFromStorage = window.localStorage.getItem('board');
-    return boardFromStorage ? JSON.parse(boardFromStorage) : Array(9).fill(null) 
+    return boardFromStorage ? JSON.parse(boardFromStorage) : Array(64).fill(null)
   })
-
-
   const [turno, setTurno] = useState(() => {
     const turnFromStorage = window.localStorage.getItem('turno')
-    return turnFromStorage? turnFromStorage : Turnos.X})
+    return turnFromStorage ? turnFromStorage : Turnos.X
+  })
+
   const [winner, setWinner] = useState(null)
 
   const resetGames = () => {
-    setBoard(Array(9).fill(null))
+    setBoard(Array(64).fill(null))
     setTurno(Turnos.X)
     setWinner(null)
 
@@ -27,7 +27,6 @@ export default function App() {
     resetGameStorage()
 
   }
-
 
   const updateBoard = (index) => {
     // no actualizamos esta posicion
@@ -58,7 +57,7 @@ export default function App() {
 
   return (
     <main className="board">
-      <h1>Juego</h1>
+      <h1>Ajedrez</h1>
       <section className="game">
         {
           board.map((cell, index) => {
@@ -67,7 +66,6 @@ export default function App() {
                 key={index}
                 index={index}
                 updateBoard={updateBoard}
-
               >
                 {board[index]}
               </Square>
@@ -84,7 +82,7 @@ export default function App() {
         <Square isSelected={turno === Turnos.O}>{Turnos.O}</Square>
       </section>
 
-      <WinnerModal winner={winner} resetGames={resetGames}/>
+      <WinnerModal winner={winner} resetGames={resetGames} />
 
     </main>
   )

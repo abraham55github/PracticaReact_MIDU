@@ -6,7 +6,7 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #87a07b;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -44,7 +44,7 @@ body {
   padding: 8px 12px;
   margin: 25px;
   background: transparent;
-  border: 2px solid #eee;
+  border: 1px solid #eee;
   color: #eee;
   width: 100px;
   border-radius: 5px;
@@ -60,8 +60,7 @@ body {
 
 .board .game {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
+  grid-template-columns: repeat(8, 1fr);
 }
 
 .turn {
@@ -120,12 +119,19 @@ body {
 }
 
 .square {
-  width: 100px;
-  height: 100px;
-  border: 2px solid #eee;
-  border-radius: 5px;
+  width: 50px;
+  height: 50px;
+  border: 1px solid black;
   display: grid;
   place-items: center;
   cursor: pointer;
   font-size: 48px;
+}
+
+.white {
+  background-color: white;
+}
+
+.black {
+  background-color: black;
 }

@@ -128,10 +128,10 @@ body {
   font-size: 48px;
 }
 
-.white {
+.game .white{
   background-color: white;
 }
 
-.black {
+.game .black{
   background-color: black;
 }

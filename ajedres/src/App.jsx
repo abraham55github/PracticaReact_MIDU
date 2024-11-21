@@ -65,7 +65,6 @@ export default function App() {
               <Square
                 key={index}
                 index={index}
-                updateBoard={updateBoard}
               >
                 {board[index]}
               </Square>

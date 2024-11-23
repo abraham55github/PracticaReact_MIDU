@@ -135,3 +135,18 @@ body {
 .game .black{
   background-color: black;
 }
+
+.piece {
+  font-size: 32px;
+  text-align: center;
+  line-height: 50px; /* Ajustar al tamaño de las casillas */
+  cursor: grab;
+}
+
+.piece.white {
+  color: #fff;
+}
+
+.piece.black {
+  color: #000;
+}

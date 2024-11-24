@@ -11,11 +11,11 @@ export default function Pieces({type, color}) {
         king: '♔',
     };
 
-    const icon = pieceIcons[type];
+    const icons = pieceIcons[type];
 
   return (
     <div className={`piece ${color}`}>
-      {icon}
+      {color === 'black' ? icons[type].TolowerCase() : icons[type]}
     </div>
   )
 }

@@ -1,0 +1,10 @@
+<section className="game">
+  {board.map((row, rowIndex) =>
+    row.map((cell, colIndex) => (
+      <Square key={`${rowIndex}-${colIndex}`}>
+        {null /* Puedes agregar contenido si lo necesitas */}
+      </Square>
+    ))
+  )}
+</section>
+

@@ -59,12 +59,16 @@ body {
   align-items: center;
   justify-content: center;
   border: 1px solid black;
+}
+
+.white {
   background-color: lightgray;
 }
 
-.square:nth-child(even) {
+.black {
   background-color: darkgray;
 }
+
 
 /* 
 .board {

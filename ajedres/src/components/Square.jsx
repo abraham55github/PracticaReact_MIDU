@@ -1,10 +1,13 @@
 
 
 
-export const Square = ({children}) => {
+export const Square = ({children, color}) => {
+
+  const className = `square ${color}`
+
   return (
     <>
-      <div className="square">
+      <div className={className}>
         {children}
       </div>
     </>

@@ -5,7 +5,7 @@ import { Square } from "./components/Square"
 export default function App() {
 
   const [board, setBoard] = useState(() => setupInitialBoard())
-
+  
 
   return (
     <main className="board">
@@ -14,12 +14,13 @@ export default function App() {
         {board.map((row, rowIndex) =>
           row.map((cell, colIndex) => {
             const isBlack = (rowIndex + colIndex) % 2 !== 0; 
-            console.log(rowIndex, colIndex)
             return (
               <Square
                 key={`${rowIndex}-${colIndex}`}
                 color={isBlack ? "black" : "white"} 
-              />
+              >
+                {cell}
+              </Square>
             );
           })
         )}

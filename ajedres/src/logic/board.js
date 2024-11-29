@@ -18,6 +18,11 @@ export const checkEndGame = (newBoard) => {
 
 export const setupInitialBoard = () => {
   const board = Array(8).fill(null).map(() => Array(8).fill(null))
-  
+  board[0] = ["♜", "♞", "♝", "♛", "♚", "♝", "♞", "♜"];
+  board[1] = Array(8).fill("♟");
+
+  board[6] = Array(8).fill("♙");
+  board[7] = ["♖", "♘", "♗", "♕", "♔", "♗", "♘", "♖"];
+
   return board;
 };

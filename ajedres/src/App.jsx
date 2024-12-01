@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { setupInitialBoard } from "./logic/board"
 import { Square } from "./components/Square"
+import Pieces from "./components/Pieces"
 
 export default function App() {
 
@@ -19,7 +20,7 @@ export default function App() {
                 key={`${rowIndex}-${colIndex}`}
                 color={isBlack ? "black" : "white"} 
               >
-                {cell}
+                {cell && <Pieces type={cell.type} color={cell.color}/>}
               </Square>
             );
           })

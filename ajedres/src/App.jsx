@@ -6,6 +6,8 @@ import Pieces from "./components/Pieces"
 export default function App() {
 
   const [board, setBoard] = useState(() => setupInitialBoard())
+  const [selectedPiece, setSelectedPiece] = useState(null)
+  const [validMoves, setValidMoves] = useState([])
   
 
   return (

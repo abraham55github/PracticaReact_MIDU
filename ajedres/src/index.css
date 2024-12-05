@@ -85,6 +85,14 @@ body {
   color: white;
 }
 
+.square.selected {
+  border: 2px solid blue;
+}
+
+.square.valid-move {
+  background-color: rgba(0, 255, 0, 0.3);
+}
+
 
 /* 
 .board {

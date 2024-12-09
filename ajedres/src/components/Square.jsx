@@ -1,9 +1,9 @@
 
 
 
-export const Square = ({children, color}) => {
+export const Square = ({children, color, isSelected}) => {
 
-  const className = `square ${color}`
+  const className = `square ${color} ${isSelected ? 'is-selected' : '' }`
 
   return (
     <>

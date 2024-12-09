@@ -93,6 +93,18 @@ body {
   background-color: rgba(0, 255, 0, 0.3);
 }
 
+.turn {
+  display: flex;
+  justify-content: center;
+  margin: 15px auto;
+  width: fit-content;
+  position: relative;
+  border-radius: 10px;
+}
+.square.is-selected {
+  color: #fff;
+  background: #09f;
+}
 
 /* 
 .board {

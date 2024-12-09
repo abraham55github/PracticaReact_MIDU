@@ -15,6 +15,15 @@ export default function App() {
     setTurn((prevTurn)=> (prevTurn === "white" ? "black" : "white"));
   }
 
+  const handleSquareClick = (row, col) => {
+    const selected = board[row][col]; 
+    if(selected && selected.color === turn){
+      setSelectedPiece({...selected, row, col})
+    } else {
+      setSelectedPiece(null);
+    }
+  }
+
 
   return (
 <main className="board">
@@ -23,11 +32,16 @@ export default function App() {
         {board.map((row, rowIndex) =>
           row.map((cell, colIndex) => {
             const isBlack = (rowIndex + colIndex) % 2 !== 0;
+            const isSelected = selectedPiece &&
+            selectedPiece.row === rowIndex &&
+            selectedPiece.col === colIndex;
 
             return (
               <Square
                 key={`${rowIndex}-${colIndex}`}
                 color={isBlack ? "black" : "white"}
+                isSelected={isSelected}
+                onClick={() => handleSquareClick(rowIndex, colIndex)}
               >
                 {cell && <Pieces type={cell.type} color={cell.color} />}
               </Square>

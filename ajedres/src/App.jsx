@@ -9,16 +9,16 @@ export default function App() {
   const [board, setBoard] = useState(() => setupInitialBoard())
   const [selectedPiece, setSelectedPiece] = useState(null)
   const [validMoves, setValidMoves] = useState([])
-  const [turn, setTurn] = useState(Turnos.white); 
-  
+  const [turn, setTurn] = useState(Turnos.white);
+
   const nextTurn = () => {
-    setTurn((prevTurn)=> (prevTurn === "white" ? "black" : "white"));
+    setTurn((prevTurn) => (prevTurn === "white" ? "black" : "white"));
   }
 
   const handleSquareClick = (row, col) => {
-    const selected = board[row][col]; 
-    if(selected && selected.color === turn){
-      setSelectedPiece({...selected, row, col})
+    const selected = board[row][col];
+    if (selected && selected.color === turn) {
+      setSelectedPiece({ ...selected, row, col })
     } else {
       setSelectedPiece(null);
     }
@@ -26,15 +26,16 @@ export default function App() {
 
 
   return (
-<main className="board">
+    <main className="board">
       <h1>Ajedrez</h1>
       <section className="game">
         {board.map((row, rowIndex) =>
           row.map((cell, colIndex) => {
             const isBlack = (rowIndex + colIndex) % 2 !== 0;
-            const isSelected = selectedPiece &&
-            selectedPiece.row === rowIndex &&
-            selectedPiece.col === colIndex;
+            const isSelected =
+              selectedPiece &&
+              selectedPiece.row === rowIndex &&
+              selectedPiece.col === colIndex;
 
             return (
               <Square
@@ -43,14 +44,18 @@ export default function App() {
                 isSelected={isSelected}
                 onClick={() => handleSquareClick(rowIndex, colIndex)}
               >
-                {cell && <Pieces type={cell.type} color={cell.color} />}
+                {cell && (
+                  <Pieces
+                    type={cell.type}
+                    color={cell.color}
+                    isSelected={isSelected}
+                  />
+                )}
               </Square>
             );
           })
         )}
       </section>
-
-
       <section className="turn">
         <Square isSelected={turn === Turnos.white}>{Turnos.white}</Square>
         <Square isSelected={turn === Turnos.black}>{Turnos.black}</Square>

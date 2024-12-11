@@ -101,6 +101,11 @@ body {
   position: relative;
   border-radius: 10px;
 }
+
+.turn .square.is-selected {
+  background: #09f;
+  color: #fff;
+}
 .square.is-selected {
   color: #fff;
   background: #09f;

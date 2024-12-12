@@ -21,6 +21,7 @@ body {
   justify-content: center;
   min-width: 320px;
   min-height: 100vh;
+  cursor: default;
 }
 
 * {
@@ -96,19 +97,39 @@ body {
 .turn {
   display: flex;
   justify-content: center;
+  align-items: center;
   margin: 15px auto;
   width: fit-content;
-  position: relative;
+  padding: 10px 20px;
+  border: 2px solid #000;
   border-radius: 10px;
+  font-size: 1rem;
+  font-weight: bold;
 }
 
 .turn .square.is-selected {
   background: #09f;
   color: #fff;
 }
+
+.turn.white {
+  background-color: var(--white-turn-color);
+  color: black;
+}
+
+.turn.black {
+  background-color: var(--black-turn-color);
+  color: white;
+}
+
 .square.is-selected {
   color: #fff;
   background: #09f;
+}
+
+.square.valid-move {
+  background-color: rgba(0, 255, 0, 0.5); /* Más visible */
+  border: 2px dashed green;
 }
 
 .chess-piece {
@@ -117,7 +138,16 @@ body {
 
 .chess-piece.selected {
   transform: scale(1.2);
-  color: #ffcc00; /* Cambia el color para resaltar */
+  color: #ffcc00; /* Resaltado */
+  text-shadow: 0px 0px 8px rgba(255, 204, 0, 0.7);
+}
+
+.game.white-turn .chess-piece.white {
+  cursor: pointer;
+}
+
+.game.black-turn .chess-piece.black {
+  cursor: pointer;
 }
 
 /* 

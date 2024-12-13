@@ -34,12 +34,18 @@ export default function App() {
               <Square
                 key={`${rowIndex}-${colIndex}`}
                 color={isBlack ? "black" : "white"}
-                onClick={() => handleSquareClick(rowIndex, colIndex)}
               >
                 {cell && (
                   <Pieces
                     type={cell.type}
                     color={cell.color}
+                    isSelected={
+                      selectedPiece &&
+                      selectedPiece.row === rowIndex &&
+                      selectedPiece.col === colIndex
+                    }
+                    turn={turn}
+                    onClick={() => handleSquareClick(rowIndex, colIndex)}
                   />
                 )}
               </Square>

@@ -74,6 +74,10 @@ body {
   transition: transform 0.2s ease;
 }
 
+.selected{
+  font-size: 50px;
+}
+
 .chess-piece.black {
   color: black;
 }

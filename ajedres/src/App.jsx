@@ -19,8 +19,6 @@ export default function App() {
     if (!cell || cell.color !== turn) return; // Solo se seleccionan piezas del turno actual
 
     setSelectedPiece({ row, col});
-    console.log(board[row][col])
-    console.log(`Selected piece at ${selectedPiece.row} ${selectedPiece.col}`);
     // Aquí podrías implementar lógica adicional para calcular movimientos válidos
   };
 

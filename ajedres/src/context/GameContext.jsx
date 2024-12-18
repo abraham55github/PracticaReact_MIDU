@@ -1,5 +1,5 @@
 import { createContext, useState, useContext } from 'react';
-import { setupInitialBoard } from './logic/board';
+import { setupInitialBoard } from '../logic/board';
 
 // 1. Crear el Contexto
 const GameContext = createContext();

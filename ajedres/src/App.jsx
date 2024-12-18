@@ -2,25 +2,11 @@ import { useState } from "react"
 import { setupInitialBoard } from "./logic/board"
 import { Square } from "./components/Square"
 import Pieces from "./components/Pieces"
+import { useGame } from "./context/GameContext"
 
 export default function App() {
 
-  const [board, setBoard] = useState(() => setupInitialBoard())
-  const [selectedPiece, setSelectedPiece] = useState(null)
-  const [validMoves, setValidMoves] = useState([])
-  const [turn, setTurn] = useState("white");
-
-  const nextTurn = () => {
-    setTurn((prevTurn) => (prevTurn === "white" ? "black" : "white"));
-  };
-
-  const handleSquareClick = (row, col) => {
-    const cell = board[row][col];
-    if (!cell || cell.color !== turn) return; // Solo se seleccionan piezas del turno actual
-
-    setSelectedPiece({ row, col});
-    // Aquí podrías implementar lógica adicional para calcular movimientos válidos
-  };
+  const { board, handleSquareClick, turn, nextTurn, selectedPiece} = useGame();
 
   return (
     <main className="board">

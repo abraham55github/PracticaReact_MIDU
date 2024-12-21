@@ -1,7 +1,7 @@
 
 
-export const Square = ({ children, color }) => {
-  const className = `square ${color} `;
+export const Square = ({ children, color, isValidMove }) => {
+  const className = `square ${isValidMove ?"valid-move" : color }`;
   return (
     <div
       className={className}

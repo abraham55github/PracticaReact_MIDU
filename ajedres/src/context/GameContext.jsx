@@ -15,7 +15,7 @@ export function GameProvider({ children }) {
     setTurn((prevTurn) => (prevTurn === 'white' ? 'black' : 'white'));
   };
 
-  const handleSquareClick = (row, col) => {
+  const handleSquareClick = (row, col) => { 
     const cell = board[row][col];
     if (!cell || cell.color !== turn) return;
 

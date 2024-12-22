@@ -23,8 +23,6 @@ export function GameProvider({ children }) {
       return;
     }
 
-    console.log(`Selected piece at ${row},${col}`);
-
     // Si seleccionamos una pieza válida
     setSelectedPiece({ row, col });
 
@@ -37,6 +35,24 @@ export function GameProvider({ children }) {
       setValidMoves([]); // Si no hay regla, limpia movimientos
     }
   };
+
+  const handleMoveClick = (row, col) => {
+
+    if (selectedPiece && validMoves.some(([r, c]) => r === row && c === col)) {
+      const newBoard = [...board]; // Copia del tablero actual
+  
+      // Mover la pieza a la nueva posición
+      newBoard[row][col] = newBoard[selectedPiece.row][selectedPiece.col];
+      console.log(newBoard[row][col]);
+      newBoard[selectedPiece.row][selectedPiece.col] = null; // Limpiar la posición anterior
+  
+      setBoard(newBoard); // Actualizar el tablero
+      setSelectedPiece(null); // Limpiar la selección
+      setValidMoves([]); // Limpiar los movimientos válidos
+      nextTurn(); // Cambiar el turno
+      return;
+    }
+  }
 
   return (
     <GameContext.Provider
@@ -51,6 +67,7 @@ export function GameProvider({ children }) {
         setValidMoves,
         nextTurn,
         handleSquareClick,
+        handleMoveClick
       }}
     >
       {children}

@@ -58,9 +58,10 @@ body {
   border: 1px solid black;
 }
 
-.square .valid-move {
-  border-color: rgba(0, 255, 0, 0.5);
+.square.valid-move {
+  background-color: lightgoldenrodyellow;
   cursor: pointer;
+  
 }
 
 .white {

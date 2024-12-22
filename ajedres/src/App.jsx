@@ -5,7 +5,7 @@ import { useGame } from "./context/GameContext"
 
 export default function App() {
 
-  const { board, handleSquareClick, turn, nextTurn, selectedPiece, validMoves} = useGame();
+  const { board, handleSquareClick, turn, nextTurn, selectedPiece, validMoves, handleMoveClick} = useGame();
 
   const isBlack = (row, col) => {
     return (row + col) % 2 === 0;
@@ -35,6 +35,7 @@ export default function App() {
                 key={`${rowIndex}-${colIndex}`}
                 color={isBlack(rowIndex, colIndex) ? "black" : "white"}
                 isValidMove={isValidMove}
+                onClick={() => handleMoveClick(rowIndex, colIndex)}
               >
                 {cell && (
                   <Pieces

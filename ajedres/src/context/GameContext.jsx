@@ -43,7 +43,6 @@ export function GameProvider({ children }) {
   
       // Mover la pieza a la nueva posición
       newBoard[row][col] = newBoard[selectedPiece.row][selectedPiece.col];
-      console.log(newBoard[row][col]);
       newBoard[selectedPiece.row][selectedPiece.col] = null; // Limpiar la posición anterior
   
       setBoard(newBoard); // Actualizar el tablero

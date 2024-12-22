@@ -55,7 +55,6 @@ export default function App() {
       </section>
       <section className="turn">
         <h2>Turno: {turn === "white" ? "Blancas" : "Negras"} </h2>
-        <button onClick={nextTurn}>Pasar Turno</button>
       </section>
     </main>
   )

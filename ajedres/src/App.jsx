@@ -15,12 +15,6 @@ export default function App() {
     return selectedPiece && selectedPiece.row === row && selectedPiece.col === col;
   }
 
- /*  const isValidMove = (Moves, row, col) => {
-    Moves.some(
-      ([r, c]) => r === row && c === col
-    );
-  } */
-
   return (
     <main className="board">
       <h1>Ajedrez</h1>

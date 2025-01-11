@@ -10,7 +10,7 @@ export function App() {
         fetch(CAT_ENDPOINT_RANDOM_FACT)
         .then(res => res.json())
         .then(data => setFact(data.fact))
-    })
+    }, [])
 
 
     return (
